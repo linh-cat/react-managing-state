@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "./services/useEffect";
 import Spinner from "./Spinner";
 import PageNotFound from "./PageNotFound";
-function Detail() {
+function Detail({ addToCart }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [sku, setSku] = useState("");
@@ -28,7 +28,10 @@ function Detail() {
       <p>
         <button
           className="btn btn-primary"
-          onClick={() => navigate("/cart")}
+          onClick={() => {
+            addToCart(id, sku);
+            navigate("/cart");
+          }}
           disabled={!sku}
         >
           Add to cart
