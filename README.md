@@ -3,6 +3,8 @@
 Run the following commands:
 
 ```
+install nodejs
+install reactjs
 npm install
 npm start
 ```
